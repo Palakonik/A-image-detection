@@ -1,0 +1,5 @@
+ model testing on...
+testset,accuracy,avg precision
+test,0.546875,0.5861972663288473
+train,0.4,0.468703621799597
+val,0.75,0.7808730158730158

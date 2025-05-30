@@ -153,7 +153,7 @@ def get_args_parser():
     parser.add_argument('--auto_resume', type=str2bool, default=True)
     parser.add_argument('--save_ckpt', type=str2bool, default=True)
     parser.add_argument('--save_ckpt_freq', default=1, type=int)
-    parser.add_argument('--save_ckpt_num', default=100, type=int)
+    parser.add_argument('--save_ckpt_num', default=4, type=int)
 
     parser.add_argument('--start_epoch', default=0, type=int, metavar='N',
                         help='start epoch')
@@ -360,7 +360,7 @@ def main(args):
             rows.append([val, acc, ap])
 
 
-        test_dataset_name  = args.eval_data_path.split('/')[-2]
+        test_dataset_name  = os.path.basename(os.path.normpath(args.eval_data_path))
 
         csv_name = os.path.join(args.output_dir, f'{os.path.basename(args.resume)}_{test_dataset_name}.csv')
         with open(csv_name, 'w') as f:
